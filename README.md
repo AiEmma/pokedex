@@ -18,3 +18,7 @@
 - [x] Paginação
 - [x] Evolução
 - [x] Seleção por nome ou ID
+
+### Para Rodar 🛠
+- [X] NPM I 
+- [X] NPM run start
