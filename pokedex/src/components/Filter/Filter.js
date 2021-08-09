@@ -21,23 +21,33 @@ const useStyles = makeStyles((theme) => ({
 
 const Filter = () => {
   const classes = useStyles();
-  const {pokemons, setPokemons} = useContext(GlobalStateContext)
-  const [pokemonByName, setPokemonByName] = useState([])
-  console.log("aaaa",pokemons)
+  const {pokemons, setPokemons, count, setCount,byName , setByName } = useContext(GlobalStateContext)
+  console.log("aaaa",byName)
   
-  const filtrarPokemon = pokemons && pokemons
-  .sort((a,b)=>{
-      if (a.name < b.name){
-          return -1
-      }
-      if (a.name > b.name){
-          return 0
-      }
+
+  function compararId(a,b){
+    return a-b
+  }
+  const filtrarPokemonById = pokemons.sort(compararId)
+  console.log(filtrarPokemonById)
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    if (event.target.value === "Id") {
+      const pokemonsById =  pokemons.sort((a, b) => a.id - b.id)
+       console.log('pokemonsByID: ', pokemonsById)
+      setPokemons(pokemonsById)
+      setCount(count+1)
+      // console.log('reserva: ',reserva)
+    } else {
+  const pokeOrderedByName =  byName.sort(function (a, b)  {
+    return a.name.localeCompare(b.name)
   })
-  
-const handleChange = (event) => {
-    //setPokemonByName(filtrarPokemon);
-    console.log(pokemons)
+      setPokemons(pokeOrderedByName)
+      setCount(count+1)
+      console.log('BYNAME:  ', pokeOrderedByName)
+      
+    }
   };
 
 
@@ -48,11 +58,9 @@ const handleChange = (event) => {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={pokemons}
+          //value={}
           onChange={handleChange}
         >
-          <MenuItem value="Id">
-          </MenuItem>
           <MenuItem value={"A-Z"}>A-Z</MenuItem>
           <MenuItem value={"Id"}>Id</MenuItem>
         </Select>
