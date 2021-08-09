@@ -16,6 +16,7 @@ const PageContainer = styled.main`
   grid-gap: 20px;
 `;
 
+
 const Homepage = () => {
   const history = useHistory();
   const { addToPokeDex, pokemons, pokedex, loading, changeCurrentPage, currentPage } = useContext(GlobalStateContext);
