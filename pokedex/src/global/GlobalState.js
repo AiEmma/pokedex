@@ -9,7 +9,8 @@ const GlobalState = (props) => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
-  const [pokemonsByName, setsPokemonByName] = useState([])
+  const [count, setCount] = useState([0])
+  const [byName, setByName] = useState([])
   useEffect(() => {
     setLoading(true);
     const allPokemons = async () => {
@@ -19,6 +20,14 @@ const GlobalState = (props) => {
     };
     allPokemons();
   }, [setPokemons, currentPage]);
+
+  useEffect(() => {
+    const allByName = async() =>{
+      const res = await getAllPokemons(150)
+      setByName(res)
+    } 
+    allByName()
+  },[setByName])
 
   useEffect(() => {
     const pokedexData = localStorage.getItem('pokedex');
@@ -36,6 +45,8 @@ const GlobalState = (props) => {
     setCurrentPage(currentPage - 1);
     window.scrollTo(0, 0);
   }
+
+  
 
   const successAlert = (msg) => {
     message.success({
@@ -109,7 +120,12 @@ const GlobalState = (props) => {
         setLoading,
         changeCurrentPage,
         currentPage,
-        pokemonRegistered
+        pokemonRegistered,
+        setPokemons,
+        setCount,
+        count,
+        byName,
+        setByName
       }}
     >
       {props.children}
