@@ -122,9 +122,13 @@ const DetailsPage = () => {
                 </tbody>
               </table>
 
-            </Movimentos>
             <Evolution name={name} />
+            </Movimentos>
           </Informacoes>
+
+         
+         
+
         </DetailsCard>
       </>
     );

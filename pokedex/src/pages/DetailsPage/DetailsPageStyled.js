@@ -57,7 +57,6 @@ export const DetailsCard = styled.div`
 `;
 
 export const ColunaImagens = styled.div`
-  flex: 1;
   height: 75%;
   display: flex;
   align-items: center;
@@ -110,9 +109,9 @@ export const Caracteristicas = styled.div`
   }
 `
 export const Informacoes = styled.div`
-  flex: 1;
+
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
 `
 
@@ -159,4 +158,4 @@ export const Movimentos = styled.div`
       text-align: left;
     }
   }
-`
+`;

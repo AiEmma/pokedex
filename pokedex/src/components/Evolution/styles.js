@@ -6,10 +6,10 @@ export const SectionEvolution = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   width: 90%;
   height: 100%;
   padding: 20px 0;
+  border-color: blue;
 `;
 
 export const EvolutionPokemon = styled.div`
